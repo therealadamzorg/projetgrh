@@ -1,46 +1,59 @@
 package com.projetgrh.models;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="departements")
-public class Departement {
+@Table(name="avantagess")
+public class AvantageSurSalaire {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String nomDepartement;
+	private String avantage;
 	
 	
 	
-	
-	
-	public Departement() {
+	public AvantageSurSalaire() {
 		super();
 	}
-	public Departement(int id, String nomDepartement) {
+
+
+
+	public AvantageSurSalaire(int id, String avantage) {
 		super();
 		this.id = id;
-		this.nomDepartement = nomDepartement;
+		this.avantage = avantage;
 	}
+
+
+
 	public int getId() {
 		return id;
 	}
+
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNomDepartement() {
-		return nomDepartement;
+
+
+
+	public String getAvantage() {
+		return avantage;
 	}
-	public void setNomDepartement(String nomDepartement) {
-		this.nomDepartement = nomDepartement;
+
+
+
+	public void setAvantage(String avantage) {
+		this.avantage = avantage;
 	}
-    	
 	
+	
+	
+
 }

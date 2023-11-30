@@ -1,4 +1,4 @@
-package com.projetgrh.controllers;
+package com.projetgrh.controllers; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +10,7 @@ import java.util.List;
 	import java.util.Optional;
 
 	@RestController
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/collaborateurs")
 	public class CollaborateurController {
 
@@ -39,6 +40,10 @@ import java.util.List;
 	    @DeleteMapping("/{id}")
 	    public void deleteCollaborateur(@PathVariable int id) {
 	        collaborateurService.deleteCollaborateur(id);
+	    }
+	    @GetMapping("/total-salaire-brut")
+	    public Double getTotalSalaireBrut() {
+	        return collaborateurService.calculateTotalSalaireBrut();
 	    }
 	}
 
