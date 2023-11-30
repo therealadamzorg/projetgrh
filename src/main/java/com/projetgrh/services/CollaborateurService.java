@@ -35,4 +35,11 @@ public class CollaborateurService {
 	public void updateCollaborateur(int id, Collaborateur collaborateur) {
 		collaborateurRepository.save(collaborateur);
 	}
+	public Double calculateTotalSalaireBrut() {
+        List<Collaborateur> collaborateurs = collaborateurRepository.findAll();
+
+        return collaborateurs.stream()
+                .mapToDouble(Collaborateur::getSalaireBrut)
+                .sum();
+    }
 }

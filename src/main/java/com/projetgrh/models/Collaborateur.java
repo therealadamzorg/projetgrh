@@ -7,14 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@Data
 @Entity
 @Table(name = "collaborateur")
 public class Collaborateur {
@@ -37,6 +41,19 @@ public class Collaborateur {
 	private int recommandation;
 	private String collabRec;
 	private String commentaire;
+	private Double salaireBrut;
+	@OneToOne
+	private Poste poste; 
+	@ManyToOne
+	private TypeContrat typeContrat;
+	public Double getSalaireBrut() {
+		return salaireBrut;
+	}
+
+	public void setSalaireBrut(Double salaireBrut) {
+		this.salaireBrut = salaireBrut;
+	}
+
 	public Collaborateur(int id, int cin, String nomComplet, int numCompte, int numSS, int numTel, LocalDate dateNaiss,
 			String adresse, String email, String certification, int anneeExp, LocalDate dateDebutContrat,
 			LocalDate dateFinContrat, int recommandation, String collabRec, String commentaire) {
@@ -158,6 +175,14 @@ public class Collaborateur {
 	}
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
+	}
+
+	public TypeContrat getTypeContrat() {
+		return typeContrat;
+	}
+
+	public void setTypeContrat(TypeContrat typeContrat) {
+		this.typeContrat = typeContrat;
 	}
 	
 	
